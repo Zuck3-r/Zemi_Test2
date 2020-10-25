@@ -1,0 +1,7 @@
+<h1>部屋情報を追加</h1>
+<%= form_for @user,:url => {controller: "users", action: "regist_room"} do |f| %>
+    <p>
+        <%= f.select :room, [["roomA", "roomA"], ["roomB", "roomB"], ["roomC", "roomC"], ["roomD", "roomD"]], include_blank: "選択して下さい" %>
+    </p>
+    <%= f.submit '部屋追加'%>
+<% end %>

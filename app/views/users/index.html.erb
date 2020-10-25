@@ -1,0 +1,33 @@
+<h1>ユーザー情報一覧</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :room, "部屋名" %>
+  <%= f.search_field :room_eq %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>ＩＤ番号</th>
+    <th>メール</th>
+    <th>部屋名</th>
+    <th>入室時間</th>
+    <th>退室時間</th>
+    <th>部屋追加</th>
+    <th>打刻</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user[:uid] %></td>
+    <td><%= user[:mail] %></td>
+    <td><%= user[:room] %></td>
+    <td><%= user[:time_in] %></td>
+    <td><%= user[:time_out] %></td>
+    <td><%= link_to '部屋を追加する', "users/add_room/#{user.id}" %></td>
+    <td><%= link_to '打刻', "users/strike/#{user.id}" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "新規登録", 'users/new' %>

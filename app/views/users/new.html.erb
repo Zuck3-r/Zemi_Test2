@@ -1,0 +1,16 @@
+<h1>新しくユーザー追加</h1>
+
+<%= form_for @user,:url => {controller: "users", action: "create"} do |f| %>
+    <p>
+        <%= f.label :uid, 'ユーザＩＤ' %>
+        <%= f.number_field :uid, class: 'form-control' %>
+    </p>
+    
+    <p>
+        <%= f.label :mail, 'メールアドレス' %>
+        <%= f.text_field :mail, class: 'form-control' %>
+    </p>
+    <%= f.submit '新規登録'%>
+<% end %>
+
+<%= link_to '一覧', root_path %>

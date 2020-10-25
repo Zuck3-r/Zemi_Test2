@@ -1,0 +1,9 @@
+<h1>打刻</h1>
+<h2>入室</h2>
+<%= form_for @user,:url => {controller: "users", action: "regist_time"} do |f| %>
+        <p>
+            <%= f.text_field :time_in %>
+    </p>
+    <%= f.submit '打刻'%>
+<% end %>
+
