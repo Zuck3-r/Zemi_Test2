@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    
+    if User.exists?(uid: [@user.uid])
+      @user.mail = User.find_by(uid: @user.uid).mail
+    end
+    
     if @user.save
       flash[:notice] = "ユーザー追加"
       redirect_to root_path

@@ -1,9 +1,12 @@
 <h1>ユーザー情報一覧</h1>
 
 <%= search_form_for @q do |f| %>
+  <%= f.label :uid, "ユーザーID" %>
+  <%= f.search_field :uid_eq %>
   <%= f.label :room, "部屋名" %>
   <%= f.search_field :room_eq %>
-
+  <%= f.date_field :time_in_gteq %>
+  <%= f.date_field :time_in_lteq %>
   <%= f.submit "検索" %>
 <% end %>
 
